@@ -2,6 +2,8 @@ import datetime
 from pathlib import Path
 from selene import browser, have, by, command
 
+import tests
+
 
 class RegistrationForm:
 
@@ -39,7 +41,7 @@ class RegistrationForm:
 
     def upload_picture(self, file):
         (browser.element('#uploadPicture').
-         set_value(str(Path(tests1.__file__).parent.joinpath(f'resources/{file}').absolute())
+         set_value(str(Path(tests.__file__).parent.joinpath(f'resources/{file}').absolute())
                    ))
 
     def fill_current_address(self, address):
