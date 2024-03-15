@@ -2,7 +2,6 @@ from selene import browser
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -13,7 +12,7 @@ def setup_browser(request):
         "browserVersion": "120.0",
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": True
+            "enableVideo": False
         }
     }
     options.capabilities.update(selenoid_capabilities)
