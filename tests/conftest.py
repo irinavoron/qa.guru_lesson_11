@@ -3,6 +3,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+from utils import attach
+
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
@@ -12,7 +14,7 @@ def setup_browser(request):
         "browserVersion": "120.0",
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": False
+            "enableVideo": True
         }
     }
     options.capabilities.update(selenoid_capabilities)
@@ -27,5 +29,10 @@ def setup_browser(request):
     browser.config.window_height = 1080
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    attach.add_video(browser)
 
     browser.quit()
