@@ -1,6 +1,8 @@
 import pytest
 from selene import browser
 
+from utils import attach
+
 
 @pytest.fixture(autouse=True)
 def browser_size():
@@ -9,5 +11,10 @@ def browser_size():
     browser.config.window_height = 1080
 
     yield
+
+    attach.add_screenshot(browser)
+    attach.add_html(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
 
     browser.quit()

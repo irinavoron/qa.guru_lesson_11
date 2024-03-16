@@ -9,7 +9,7 @@ from demoqa_tests.data import users
 @allure.label('owner', 'irinavoron')
 @allure.feature('Simple registration form')
 @allure.story('User should be able to register via simple registration form')
-@allure.description('Registered data match the data indicated while registering')
+@allure.title('Registered data match the data indicated while registering')
 @allure.severity(Severity.BLOCKER)
 def test_simple_registration_form():
     user = users.admin

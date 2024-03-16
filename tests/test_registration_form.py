@@ -9,7 +9,7 @@ from demoqa_tests.data import users
 @allure.story('User should be able to register')
 @allure.label('owner', 'irinavoron')
 @allure.severity(Severity.BLOCKER)
-@allure.description('Registered data match the data indicated while registering')
+@allure.title('Registered data match the data indicated while registering')
 def test_registration_form():
     user = users.student
 
